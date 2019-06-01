@@ -4,10 +4,12 @@ const styles = {
   title: {
     fontFamily: 'Montserrat',
     color: themeColors.blue,
-    padding: 20
+    padding: 20,
+    cursor:'pointer' 
   },
   navBar: {
     backgroundColor: themeColors.black,
+    display: 'block'
   },
   tab: {
     fontSize: 16,
