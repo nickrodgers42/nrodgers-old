@@ -9,7 +9,6 @@ const styles = {
   },
   navBar: {
     backgroundColor: themeColors.black,
-    display: 'block'
   },
   tab: {
     fontSize: 16,

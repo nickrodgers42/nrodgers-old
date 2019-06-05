@@ -7,7 +7,6 @@ import {
   Tab,
   Tabs,
   Tooltip,
-  Box
 } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
 import styles from './NavBarTheme';
@@ -64,8 +63,7 @@ class navBar extends Component {
   render() {
     const {classes} = this.props;
     return (
-      <Box style={{display: 'block'}}>
-      <AppBar position='static' id="appBar" className={classes.navBar}>
+      <AppBar id="appBar" className={classes.navBar}>
         <Toolbar>
             <Typography 
               variant="h4"
@@ -107,7 +105,6 @@ class navBar extends Component {
           )}
         </Toolbar>
       </AppBar>
-      </Box>
     )
   }
 }
