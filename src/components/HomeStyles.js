@@ -6,9 +6,12 @@ const styles = {
     color: ThemeColors.blue,
     fontFamily: 'monospace' 
   },
+  heading: {
+    color: ThemeColors.blue,
+    fontFamily: 'Montserrat'
+  },
   fullScreenGrid: { 
-    flex: 1,
-    height: '100vh'
+    minHeight: '100vh',
   },
   introDiv: {
     display: 'inline-block',
@@ -22,6 +25,20 @@ const styles = {
   continueButton: {
     color: '#45A29E',
     borderColor: '#45A29E'
+  },
+  aboutImg: {
+    width: '400px',
+    borderRadius: '10px',
+  },
+  aboutCard: {
+    padding: '20px',
+    maxWidth: '800px'
+  },
+  aboutCardTitle: {
+    marginBottom: '20px'
+  },
+  aboutText: {
+    paddingRight: "20px"
   }
 }
 

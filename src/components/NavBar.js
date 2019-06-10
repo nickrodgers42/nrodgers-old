@@ -55,21 +55,22 @@ class navBar extends Component {
   }
 
   handleChange(event, newValue) {
+    console.log('change')
     this.setState({
       tabValue: newValue
-    })
+    },this.props.navigate(newValue))
   }
 
   render() {
     const {classes} = this.props;
     return (
-      <AppBar id="appBar" className={classes.navBar}>
+      <AppBar id="appBar" position="fixed" className={classes.navBar}>
         <Toolbar>
             <Typography 
               variant="h4"
               component="h1"
               className={classes.title}
-              onClick={() => {window.location.href = '/'}}
+              onClick={() => this.props.navigate('home')}
             >
               Nick&nbsp;Rodgers
             </Typography>
@@ -91,7 +92,6 @@ class navBar extends Component {
                   style={{ height: this.state.height }}
                   value={tab}
                   key={tab}
-                  href={'/' + tab}
                 />
               )
             }
