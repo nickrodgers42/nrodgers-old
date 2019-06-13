@@ -120,7 +120,8 @@ class HomePage extends Component {
         container
         direction="column"
         className={classes.fullScreenGrid}
-      >
+        style={{ backgroundImage: 'linear-gradient(#1F2833, #1F2833, #45A29E)'}}
+          >
         <Typography className={classes.heading} variant='h2'>Contact</Typography>
       </Grid>
       </div>
