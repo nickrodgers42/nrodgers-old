@@ -4,41 +4,44 @@ const styles = {
   helloText: {
     padding: 5,
     color: ThemeColors.blue,
-    fontFamily: 'monospace' 
+    fontFamily: 'monospace',
   },
-  heading: {
-    color: ThemeColors.blue,
-    fontFamily: 'Montserrat'
+  centerGrid: {
+    position: 'absolute', 
+    top: '50%',
+    left: '50%',
+    transform: "translate(-50%, -50%)",
   },
-  fullScreenGrid: { 
-    minHeight: '100vh',
+  textGridItem: {
+    width: '500px', 
+    borderRadius: 10,
+    padding: 10,
+    marginBottom: 50,
+    boxShadow: '5px 5px #45A29E',
+    flexGrow: 1, 
+    height: '100px', 
+    backgroundColor: 'black'
   },
-  introDiv: {
-    display: 'inline-block',
-    minWidth: '500px',
-    backgroundColor: 'transparent'
+  subtitleWidth: {
+    width: '500px',
   },
   introSubtitle: {
     padding: 5, 
-    color: ThemeColors.white
+    color: ThemeColors.white,
+    fontFamily: 'Montserrat'
   },
-  continueButton: {
-    color: '#45A29E',
-    borderColor: '#45A29E'
+  buttonGrid: {
+    position: 'absolute', 
+    top: '90%',
+    left: '50%',
+    transform: "translate(-50%, -50%)",  
   },
-  aboutImg: {
-    width: '400px',
-    borderRadius: '10px',
+  highlight: {
+    color: ThemeColors.blue,
   },
-  aboutCard: {
-    padding: '20px',
-    maxWidth: '800px'
-  },
-  aboutCardTitle: {
-    marginBottom: '20px'
-  },
-  aboutText: {
-    paddingRight: "20px"
+  icon: {
+    color: ThemeColors.blueSecondary,
+    fontSize: 36
   }
 }
 

@@ -1,67 +1,58 @@
-import React, { Component } from 'react';
-import {
-  Typography
-} from '@material-ui/core';
+import React, { useState, useEffect } from 'react'
+import { Typography } from '@material-ui/core'
 
-class AnimatedText extends Component {
-  constructor(props) {
-    super(props);
-    this.textToWrite = props.textToWrite;
-    this.state = {
-      text: '',
-      showCursor: true,
-      blinkCount: 0
-    }
-  }
+const AnimatedText = (props) => {
+    const [delay] = useState(props.delay || 0)
+    const [animationStarted, setAnmiationStarted] = useState(false)
+    const [showCursor, setShowCursor] = useState(false)
+    const [text, setText] = useState('')
 
-  componentDidMount() {
-    this.writeText()
-  }
-
-  writeText() {
-    this.setState({
-      blinkCount: 6
-    }, () => {
-      this.textInterval = setInterval(() => {
-        if (this.state.blinkCount >= 0) {
-          this.setState((prevState, props) => {
-            return {
-              blinkCount: prevState.blinkCount - 1,
-              showCursor: !prevState.showCursor
-            }
-          })
+    useEffect(() => {
+        const animateText = async () => {
+            await blinkCursor()
+            await writeText()
+            await blinkCursor()
         }
-        else if (this.state.text !== this.textToWrite) {
-          this.setState((prevState, props) => {
-            if (prevState.text.length + 1 === this.textToWrite.length) {
-              return {
-                blinkCount: 6,
-                showCursor: true,
-                text: prevState.text + this.textToWrite.substr(prevState.text.length, 1),
-              }
-            }
-            else {
-              return {
-                showCursor: true,
-                text: prevState.text + this.textToWrite.substr(prevState.text.length, 1)
-              }
-            }
-          })
+        const blinkCursor = async () => {
+            let cursorInterval = setInterval(() => {
+                setShowCursor(prevShowCursor => !prevShowCursor)
+            }, 265)
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    clearInterval(cursorInterval)
+                    resolve()
+                }, 2000)
+            })
         }
-        else {
-          this.setState({
-            showCursor: false
-          }, clearInterval(this.textInterval))
+    
+        const writeText = async () => {
+            setShowCursor(true)
+            return new Promise(resolve => {
+                let textInterval = setInterval(() => {
+                    setText(oldText => {
+                        if (oldText + props.textToWrite.charAt(oldText.length) === props.textToWrite) {
+                            clearInterval(textInterval)
+                            resolve()
+                        }
+                        return oldText + props.textToWrite.charAt(oldText.length)
+                    })
+                }, 265)
+            })
         }
-      }, 265)
-    })
-  }
 
-  render() {
+        if (!animationStarted) {
+            setAnmiationStarted(true)
+            setTimeout(() => animateText(), delay)
+        }
+    }, [animationStarted, delay, props.textToWrite])
+
     return (
-      <Typography style={this.props.style} variant={this.props.variant} component={this.props.component}>> {this.state.text}{this.state.showCursor ? '_' : null}</Typography>
+        <Typography 
+            style={props.style}
+            variant={props.variant}
+            component={props.component}
+        >> {text}{showCursor ? '_' : ' '}</Typography>
     )
-  }
 }
 
 export default AnimatedText

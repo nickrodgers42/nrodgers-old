@@ -1,20 +1,22 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react'
 import {
   AppBar,
+  Box,
   Toolbar,
   IconButton,
-  Typography,
   Tab,
   Tabs,
   Tooltip,
-} from '@material-ui/core';
-import { withStyles } from '@material-ui/styles';
-import styles from './NavBarTheme';
-import { 
+  Typography
+} from '@material-ui/core'
+import { withStyles } from '@material-ui/styles'
+import styles from './NavbarStyles'
+import {
   IoLogoGithub,
   IoLogoLinkedin,
   IoMdMail
 } from 'react-icons/io';
+import themeColors from '../colors';
 
 const tabs = [
   'about',
@@ -41,72 +43,65 @@ const logos = [
   }
 ]
 
-class navBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      tabValue: this.props.route
-    }
-  }
+const Navbar = (props) => {
+  const { classes, tab } = props
+  const [tabValue] = useState(tab)
+  const StyledTabs = withStyles({
+    indicator: {
+      display: 'flex',
+      justifyContent: 'center',
+      backgroundColor: 'transparent',
+      '& > div': {
+        maxWidth: 40,
+        width: '100%',
+        backgroundColor: themeColors.blueSecondary,
+      },
+    },
+  })(props => <Tabs {...props} TabIndicatorProps={{ children: <div />}} />);
 
-  componentDidMount() {
-    const height = document.getElementById('appBar').clientHeight;
-    this.setState({ height: height });
-  }
-
-  handleChange(event, newValue) {
-    console.log('change')
-    this.setState({
-      tabValue: newValue
-    },this.props.navigate(newValue))
-  }
-
-  render() {
-    const {classes} = this.props;
-    return (
-      <AppBar id="appBar" position="fixed" className={classes.navBar}>
+  return (
+    <Box my={10}>
+      <AppBar className={classes.navbar}>
         <Toolbar>
-            <Typography 
-              variant="h4"
-              component="h1"
-              className={classes.title}
-              onClick={() => this.props.navigate('home')}
-            >
-              Nick&nbsp;Rodgers
-            </Typography>
-          <Tabs
-            className={ classes.tabs }
-            value={this.state.tabValue}
+          <Typography
+            variant="h5"
+            component="h1"
+            className={classes.title}
+          >
+            Nick&nbsp;Rodgers
+          </Typography>
+          <StyledTabs
+            className={classes.tabs}
+            value={tabValue}
             onChange={(event, newValue) => this.handleChange(event, newValue)}
-            TabIndicatorProps={{className: classes.tabIndicator}}
-          > 
-            <Tab 
+            TabIndicatorProps={{ children: <div /> }}
+          >
+            <Tab
               label='home'
               value='/'
-              style={{display: 'none'}}
+              style={{ display: 'none' }}
             />
             {tabs.map(tab =>
-                <Tab
-                  label={tab}
-                  className={classes.tab}
-                  style={{ height: this.state.height }}
-                  value={tab}
-                  key={tab}
-                />
-              )
+              <Tab
+                label={tab}
+                className={classes.tab}
+                value={tab}
+                key={tab}
+              />
+            )
             }
-          </Tabs>
+          </StyledTabs>
           {logos.map(logo =>
             <Tooltip title={logo.name} key={logo.name}>
               <IconButton className={classes.icon} href={logo.link}>
-                <logo.icon/>
+                <logo.icon />
               </IconButton>
             </Tooltip>
           )}
         </Toolbar>
-      </AppBar>
-    )
-  }
+      </AppBar >
+    </Box>
+  )
 }
 
-export default withStyles(styles)(navBar);
+export default withStyles(styles)(Navbar)
