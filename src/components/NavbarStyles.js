@@ -5,20 +5,20 @@ const styles = {
     fontFamily: 'Montserrat',
     color: themeColors.blue,
     padding: 20,
-    cursor:'pointer' 
+    cursor: 'pointer'
   },
-  navBar: {
+  navbar: {
     backgroundColor: themeColors.black,
   },
   tab: {
     fontSize: 16,
-    fontFamily: 'Montserrat'
+    fontFamily: 'Montserrat',
   },
   tabs: {
     flexGrow: 1,
   },
   tabIndicator: {
-    backgroundColor: themeColors.blue
+    backgroundColor: themeColors.blue,
   },
   icon: {
     color: themeColors.blueSecondary,
