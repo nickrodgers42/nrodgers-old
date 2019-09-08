@@ -17,6 +17,7 @@ import {
   IoMdMail
 } from 'react-icons/io';
 import themeColors from '../colors';
+import { withRouter } from 'react-router-dom'
 
 const tabs = [
   'about',
@@ -44,7 +45,7 @@ const logos = [
 ]
 
 const Navbar = (props) => {
-  const { classes, tab } = props
+  const { classes, tab, history } = props
   const [tabValue] = useState(tab)
   const StyledTabs = withStyles({
     indicator: {
@@ -67,13 +68,13 @@ const Navbar = (props) => {
             variant="h5"
             component="h1"
             className={classes.title}
+            onClick={() => history.push('/')}
           >
             Nick&nbsp;Rodgers
           </Typography>
           <StyledTabs
             className={classes.tabs}
             value={tabValue}
-            onChange={(event, newValue) => this.handleChange(event, newValue)}
             TabIndicatorProps={{ children: <div /> }}
           >
             <Tab
@@ -87,6 +88,7 @@ const Navbar = (props) => {
                 className={classes.tab}
                 value={tab}
                 key={tab}
+                onClick={() => history.push(tab)}
               />
             )
             }
@@ -104,4 +106,4 @@ const Navbar = (props) => {
   )
 }
 
-export default withStyles(styles)(Navbar)
+export default withRouter(withStyles(styles)(Navbar))
