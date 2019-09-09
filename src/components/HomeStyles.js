@@ -13,22 +13,26 @@ const styles = {
     transform: "translate(-50%, -50%)",
   },
   textGridItem: {
-    width: '500px', 
+    width: '300px',
+    height: '80px',
+    boxShadow: `5px 5px ${ThemeColors.blueSecondary}`,
+    backgroundColor: ThemeColors.black,
     borderRadius: 10,
     padding: 10,
-    marginBottom: 50,
-    boxShadow: '5px 5px #45A29E',
-    flexGrow: 1, 
-    height: '100px', 
-    backgroundColor: 'black'
+    marginBottom: 30,
   },
   subtitleWidth: {
-    width: '500px',
+    width: '300px',
   },
   introSubtitle: {
     padding: 5, 
     color: ThemeColors.white,
     fontFamily: 'Montserrat'
+  },
+  learnMoreButton: {
+    color: 'black',
+    backgroundColor: '#45A29E',
+    margin: '50px 0 0'
   },
   buttonGrid: {
     position: 'absolute', 
@@ -42,7 +46,17 @@ const styles = {
   icon: {
     color: ThemeColors.blueSecondary,
     fontSize: 36
-  }
+  },
+  '@media (min-width:768px)': {
+    textGridItem: {
+      width: '500px', 
+      height: '100px', 
+      marginBottom: 50,
+    },
+    subtitleWidth: {
+      width: '500px',
+    },
+  },
 }
 
 export default styles

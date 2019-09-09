@@ -4,9 +4,12 @@ import AnimatedText from './animatedText'
 import { withStyles } from '@material-ui/styles'
 import styles from './HomeStyles'
 import {
-  Grid, Typography, Button,
+  Grid,
+  Typography,
+  Button,
   IconButton,
   Tooltip,
+  useMediaQuery
 } from '@material-ui/core'
 import {
   IoLogoGithub,
@@ -34,9 +37,12 @@ const logos = [
 
 const Home = (props) => {
   const { classes } = props
+  const mobile = useMediaQuery('(max-width:768px')
+
   return (
     <div>
       <Navbar tab="home" />
+      
       <Grid 
         container
         direction="column"
@@ -47,14 +53,14 @@ const Home = (props) => {
         <Grid item
          className={classes.textGridItem}
         >
-          <AnimatedText style={styles.helloText} textToWrite={"Hello World!"} variant='h3' component='h2'></AnimatedText>
+          <AnimatedText style={styles.helloText} textToWrite={"Hello World!"} variant={mobile ? 'h5': 'h3'} component='h2'></AnimatedText>
         </Grid>
         <Grid item className={classes.subtitleWidth}>
           <Typography className={classes.introSubtitle} variant='h4'>I am <span className={classes.highlight}>Nick</span></Typography>
           <Typography className={classes.introSubtitle} variant='h5'>Software Engineer</Typography>
         </Grid>
         <Grid item>
-          <Button variant="contained" size="large" style={{color: 'black', backgroundColor: '#45A29E', margin: '50px 0 0'}}>Learn More</Button>
+          <Button variant="contained" size="large" href="/about" className={classes.learnMoreButton}>Learn More</Button>
         </Grid>>
       </Grid>
       <Grid 
