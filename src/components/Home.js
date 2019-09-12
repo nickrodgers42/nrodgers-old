@@ -37,7 +37,7 @@ const logos = [
 
 const Home = (props) => {
   const { classes } = props
-  const mobile = useMediaQuery('(max-width:768px')
+  const mobile = useMediaQuery('(max-width:768px)')
 
   return (
     <div>

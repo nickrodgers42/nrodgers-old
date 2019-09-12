@@ -74,7 +74,7 @@ const Navbar = (props) => {
       },
     },
   })(props => <Tabs {...props} TabIndicatorProps={{ children: <div />}} />);
-  const mobile = useMediaQuery('(max-width:768px')
+  const mobile = useMediaQuery('(max-width:768px)')
 
   return (
     <Box my={10}>
