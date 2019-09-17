@@ -34,6 +34,7 @@ const experienceDetails = {
       'AWS',
       'Docker',
       'C#',
+      'Lean Development'
     ],
     logo: PluralsightLogo,
   },
@@ -47,9 +48,10 @@ const experienceDetails = {
     around the Laboratory.`,
     relevantTech: [
       'Vue.js',
-      'SQL',
+      'PostgreSQL',
       'TCL',
-      'OpenACS'
+      'OpenACS',
+      'Agile Development'
     ],
     logo: SdlLogo
   }
@@ -67,7 +69,6 @@ const Experience = (props) => {
       newExpanded[key] = !newExpanded[key]
     }
     setExpanded({...newExpanded})
-    console.log(expanded)
   }
 
   return (
@@ -106,7 +107,7 @@ const Experience = (props) => {
             </Typography>
           </CardContent>
           <CardActions>
-            <div style={{flexGrow: 1}}>
+            <div className={classes.growDiv}>
 
             </div>
             <IconButton onClick={() => toggleExpanded(key)}>

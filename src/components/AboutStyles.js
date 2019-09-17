@@ -10,17 +10,19 @@ const styles = {
         marginTop: '100px',
         fontFamily: 'Montserrat'
     },
+    profilePicture: {
+        height: '300px',
+        width: '300px',
+        borderRadius: '50%',
+        objectFit: 'cover',
+        objectPosition: '0 0',
+        margin: '20px auto',
+        display: 'block',
+        boxShadow: `5px 2px ${ThemeColors.blue}`,
+    },
     card: {
         maxWidth: '90%',
         margin: '36px auto'
-    },
-    cardImage: {
-        width: '66%',
-        display: 'block',
-        margin: '0 auto 10px'
-    },
-    growDiv: {
-        flexGrow: 1
     },
     '@media screen and (min-width:768px)': {
         title: {

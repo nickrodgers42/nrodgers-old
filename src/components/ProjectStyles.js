@@ -14,11 +14,6 @@ const styles = {
         maxWidth: '90%',
         margin: '36px auto'
     },
-    cardImage: {
-        width: '66%',
-        display: 'block',
-        margin: '0 auto 10px'
-    },
     growDiv: {
         flexGrow: 1
     },
