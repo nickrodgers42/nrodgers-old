@@ -13,7 +13,7 @@ const styles = {
     },
     contactCard: {
         padding: '20px',
-        minWidth: '90%',
+        maxWidth: '90%',
         minHeight: '100px'
     },
     contactBody:{
@@ -28,7 +28,8 @@ const styles = {
     },
     '@media screen and (min-width: 768px)': {
         contactCard: {
-            minWidth: '600px'
+            width: '100%',
+            maxWidth: '600px'
         }
     }
 }

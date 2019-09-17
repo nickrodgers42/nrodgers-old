@@ -3,6 +3,8 @@ import Navbar from './Navbar'
 import AnimatedText from './animatedText'
 import { withStyles } from '@material-ui/styles'
 import styles from './HomeStyles'
+import { Link } from 'react-router-dom'
+
 import {
   Grid,
   Typography,
@@ -70,14 +72,15 @@ const Home = (props) => {
           </Typography>
         </Grid>
         <Grid item>
-          <Button
-            variant="contained"
-            size="large"
-            href="/about"
-            className={classes.learnMoreButton}
-          >
-            Learn More
-          </Button>
+          <Link to='/about'>
+            <Button
+              variant="contained"
+              size="large"
+              className={classes.learnMoreButton}
+            >
+              Learn More
+            </Button>
+          </Link>
         </Grid>>
       </Grid>
       <Grid 
