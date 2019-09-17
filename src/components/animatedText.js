@@ -12,6 +12,7 @@ const AnimatedText = (props) => {
             await blinkCursor()
             await writeText()
             await blinkCursor()
+            setShowCursor(false)
         }
         const blinkCursor = async () => {
             let cursorInterval = setInterval(() => {
